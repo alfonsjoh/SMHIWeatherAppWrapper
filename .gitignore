@@ -1,0 +1,5 @@
+/App/WeatherApp/bin/
+/App/WeatherApp/obj/
+/InitMeilisearch/__pycache__/
+/Meilisearch/data.ms/
+/Meilisearch/dumps/

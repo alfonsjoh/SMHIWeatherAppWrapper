@@ -1,0 +1,6 @@
+﻿GET http://localhost:5126/api/weather/forecast/?location=eksjo
+Accept: application/json
+
+###
+GET http://localhost:5126/api/weather/forecast10/?location=eksjo
+Accept: application/json
