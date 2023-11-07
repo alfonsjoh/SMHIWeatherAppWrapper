@@ -67,4 +67,8 @@
       <PackageReference Include="NRedisStack" Version="0.10.1" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Include="wwwroot\css\index.css" />
+    </ItemGroup>
+
 </Project>

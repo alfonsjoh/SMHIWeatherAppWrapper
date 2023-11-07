@@ -1,0 +1,17 @@
+﻿
+.forecast-view{
+    display: flex;
+}
+
+.weather{
+    margin: 0 20px;
+}
+
+.forecast10-view{
+    display: flex;
+    flex-direction: column;
+}
+
+.weather10{
+    display: flex;
+}

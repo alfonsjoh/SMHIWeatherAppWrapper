@@ -1,5 +1,6 @@
 ﻿const locationInput = $("#location-input");
 const forecastView = $("#forecast-view")
+const forecast10View = $("#forecast10-view")
 const autoCompleteView = $("#location-autocomplete")
 
 let currentLocation = {name: "", index: ""};
@@ -104,17 +105,28 @@ function updateForecastView(forecast){
     forecastView.append(...weathers);
 }
 
+function updateForecast10View(forecast){
+    // Clear all contents of the forecast view
+    forecastView.innerHTML = "";
+    let prognosis = forecast["prognosis"].map(getForecast10WeatherView);
+
+    forecast10View.append(...prognosis);
+}
+
 async function updateWeather(){
     if (currentLocation.index === ""){
         return;
     }
-    console.log(currentLocation)
-    let forecast = await getForecast(currentLocation.index);
-    if (forecast == null){
+    const [forecast, forecast10] = await Promise.all([
+        getForecast(currentLocation.index),
+        getForecast10(currentLocation.index)]);
+    
+    if (forecast == null || forecast10 == null){
         return;
     }
-    
+
     updateForecastView(forecast);
+    updateForecast10View(forecast10);
 }
 
 async function searchCities(location){
