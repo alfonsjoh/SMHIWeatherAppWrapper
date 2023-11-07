@@ -4,6 +4,7 @@ public record Weather
 (
     DateTime DateTime,
     float Temperature,
+    float Precipitation,
     float LowTemp,
     float HighTemp,
     float WindSpeed,

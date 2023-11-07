@@ -19,6 +19,7 @@ public class RandomWeatherService : IWeatherService
                 
                 prognosis.Add(new Weather(now + TimeSpan.FromHours(1) * i, 
                     temp,
+                    _rng.NextSingle()*5,
                     temp - _rng.NextSingle() * 5,  
                     temp + _rng.NextSingle() * 5,  
                     _rng.NextSingle() * 10 - 5,
@@ -43,6 +44,7 @@ public class RandomWeatherService : IWeatherService
                 
                 prognosis.Add(new Weather(now + TimeSpan.FromDays(1) * i, 
                     temp,
+                    _rng.NextSingle()*5,
                     temp - _rng.NextSingle() * 5,  
                     temp + _rng.NextSingle() * 5,  
                     _rng.NextSingle() * 10 - 5,

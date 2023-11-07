@@ -2,7 +2,7 @@
 const forecastView = $("#forecast-view")
 const autoCompleteView = $("#location-autocomplete")
 
-let currentLocation = null;
+let currentLocation = {name: "", index: ""};
 
 async function getForecast(location){
     let result = await fetch("/api/weather/forecast?" + new URLSearchParams({location: location}));
@@ -24,6 +24,11 @@ function kelvinToCelsius(kelvin){
     return (kelvin - 273.15).toFixed(2)
 }
 
+function getDayName(dateStr, locale) {
+    let date = new Date(dateStr);
+    return date.toLocaleDateString(locale, { weekday: 'long' });
+}
+
 function setLocation(location){
     currentLocation = location;
     locationInput.val(currentLocation.name);
@@ -34,39 +39,62 @@ function getLocationNameInput(){
 }
 
 function getForecastWeatherView(weather){
-    let weather_div = $("<div></div>")
-        .addClass("weather");
-    
-    let temperature = $("<p></p>")
-        .addClass("weather-temp")
-        .text(kelvinToCelsius(weather["temperature"]) + "°");
-    
-    let time = $("<p></p>")
-        .addClass("weather-time");
-    
-    let icon = $('<img alt="weather-icon">')
-        .attr("src", weather["icon"]) // Weather icon
-        .addClass("weather-icon");
-
-    temperature.innerText = kelvinToCelsius(weather["temperature"]);
-    
     // Gets hours from DateTime in weather
     let date = new Date(Date.parse(weather["dateTime"]));
     let hours = date.getHours().toString();
     let minutes = date.getMinutes().toString().padStart(2, '0')
     
-    time.innerText = `${hours}:${minutes}`;
+    let weather_div = $("<div></div>")
+        .addClass("weather");
+    
+    let temperature = $("<p></p>")
+        .addClass("temperature")
+        .text(kelvinToCelsius(weather["temperature"]) + "°");
+    
+    let time = $("<p></p>")
+        .addClass("weather-time")
+        .text(`${hours}:${minutes}`);
+    
+    let icon = $('<img alt="weather-icon">')
+        .attr("src", weather["icon"]) // Weather icon
+        .addClass("weather-icon");
     
     weather_div.append(temperature, time, icon);
     
     return weather_div;
 }
 
-function getForecast10WeatherView(weather){
+function getForecast10WeatherView(weather) {
+    // Get name of day
+    let dayName = getDayName(weather["dateTime"], "se-SE");
+    
     let weather_div = $("<div></div>")
         .addClass("weather10");
     
+    let day = $("<p></p>")
+        .addClass("day")
+        .text(dayName);
     
+    let rain = $("<p></p>")
+        .addClass("precipitation")
+        .text(weather["precipitation"])
+    
+    let icon = $('<img alt="weather-icon">')
+        .attr("src", weather["icon"]) // Weather icon
+        .addClass("weather-icon");
+
+    let lowestTemperature = $("<p></p>")
+        .addClass("temperature")
+        .text(weather["lowTemp"]);
+
+    let highestTemperature = $("<p></p>")
+        .addClass("temperature")
+        .text(weather["lowTemp"]);
+    
+    weather_div.append(day, rain, icon, lowestTemperature, highestTemperature);
+    
+    return weather_div;
+}
 
 function updateForecastView(forecast){
     // Clear all contents of the forecast view
