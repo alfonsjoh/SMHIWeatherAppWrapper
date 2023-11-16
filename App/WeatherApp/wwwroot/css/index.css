@@ -15,3 +15,10 @@
 .weather10{
     display: flex;
 }
+
+.weather-icon{
+    max-width: 30px;
+    max-height: 30px;
+    height: auto;
+    width: auto;
+}

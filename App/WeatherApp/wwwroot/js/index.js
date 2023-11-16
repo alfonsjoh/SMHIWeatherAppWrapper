@@ -22,7 +22,7 @@ async function getForecast10(location){
 }
 
 function kelvinToCelsius(kelvin){
-    return (kelvin - 273.15).toFixed(2)
+    return (kelvin - 273.15).toFixed(1)
 }
 
 function getDayName(dateStr, locale) {
@@ -56,8 +56,9 @@ function getForecastWeatherView(weather){
         .addClass("weather-time")
         .text(`${hours}:${minutes}`);
     
-    let icon = $('<img alt="weather-icon">')
-        .attr("src", weather["icon"]) // Weather icon
+    let icon = $('<img>')
+        .attr("alt", weather["icon"]["alternative"])
+        .attr("src", weather["icon"]["source"]) // Weather icon
         .addClass("weather-icon");
     
     weather_div.append(temperature, time, icon);
@@ -67,7 +68,7 @@ function getForecastWeatherView(weather){
 
 function getForecast10WeatherView(weather) {
     // Get name of day
-    let dayName = getDayName(weather["dateTime"], "se-SE");
+    let dayName = getDayName(weather["dateTime"], "sv-SE");
     
     let weather_div = $("<div></div>")
         .addClass("weather10");
@@ -78,19 +79,20 @@ function getForecast10WeatherView(weather) {
     
     let rain = $("<p></p>")
         .addClass("precipitation")
-        .text(weather["precipitation"])
+        .text(weather["precipitation"].toFixed(1))
     
-    let icon = $('<img alt="weather-icon">')
-        .attr("src", weather["icon"]) // Weather icon
+    let icon = $('<img/>')
+        .attr("alt", weather["icon"]["alternative"])
+        .attr("src", weather["icon"]["source"]) // Weather icon
         .addClass("weather-icon");
 
     let lowestTemperature = $("<p></p>")
         .addClass("temperature")
-        .text(weather["lowTemp"]);
+        .text(kelvinToCelsius(weather["lowTemp"]) + "°");
 
     let highestTemperature = $("<p></p>")
         .addClass("temperature")
-        .text(weather["lowTemp"]);
+        .text(kelvinToCelsius(weather["lowTemp"]) + "°");
     
     weather_div.append(day, rain, icon, lowestTemperature, highestTemperature);
     

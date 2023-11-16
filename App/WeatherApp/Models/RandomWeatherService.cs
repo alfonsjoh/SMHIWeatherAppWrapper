@@ -4,9 +4,21 @@ public class RandomWeatherService : IWeatherService
 {
     private readonly Random _rng = new();
     private static readonly string[] Directions = { "S", "N", "W", "E", "SE", "SW", "NE", "NW" };
+    private static readonly Icon[] Icons = {
+        new ("/icons/01d.png", "Clear sky"),        new ("/icons/01n.png", "Clear sky"),
+        new ("/icons/02d.png", "Few clouds"),       new ("/icons/02n.png", "Few clouds"),
+        new ("/icons/03d.png", "Scattered clouds"), new ("/icons/03n.png", "Scattered clouds"),
+        new ("/icons/04d.png", "Broken clouds"),    new ("/icons/04n.png", "Broken clouds"),
+        new ("/icons/09d.png", "Shower rain"),      new ("/icons/09n.png", "Shower rain"),
+        new ("/icons/10d.png", "Rain"),             new ("/icons/10n.png", "Rain"),
+        new ("/icons/11d.png", "Thunderstorm"),     new ("/icons/11n.png", "Thunderstorm"),
+        new ("/icons/13d.png", "Snow"),             new ("/icons/13n.png", "Snow"),
+        new ("/icons/50d.png", "Mist"),             new ("/icons/50n.png", "Mist")
+    };
 
     public async Task<Forecast> GetForecastAsync(WorldPosition position)
     {
+        
         var prognosis = new List<Weather>();
         await Task.Run(() =>
         {
@@ -23,7 +35,8 @@ public class RandomWeatherService : IWeatherService
                     temp - _rng.NextSingle() * 5,  
                     temp + _rng.NextSingle() * 5,  
                     _rng.NextSingle() * 10 - 5,
-                    Directions[_rng.Next(Directions.Length)]));
+                    Directions[_rng.Next(Directions.Length)],
+                    Icons[_rng.Next(Icons.Length)]));
             }
         });
 
@@ -48,7 +61,8 @@ public class RandomWeatherService : IWeatherService
                     temp - _rng.NextSingle() * 5,  
                     temp + _rng.NextSingle() * 5,  
                     _rng.NextSingle() * 10 - 5,
-                    Directions[_rng.Next(Directions.Length)]));
+                    Directions[_rng.Next(Directions.Length)],
+                    Icons[_rng.Next(Icons.Length)]));
             }
         });
 
