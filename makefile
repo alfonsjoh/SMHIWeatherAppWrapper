@@ -1,5 +1,6 @@
 run:
 	cd ./App/WeatherApp && dotnet run --configuration Release
+start-deps: search run-redis
 search:
 	cd ./Meilisearch && start meilisearch --master-key="${meilisearch_master_key}"
 init-search:
