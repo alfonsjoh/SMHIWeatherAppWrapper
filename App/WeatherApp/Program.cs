@@ -1,12 +1,21 @@
 using Meilisearch;
 using StackExchange.Redis;
 using WeatherApp.Models;
+using WeatherApp.Models.WeatherTipGeneration;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddResponseCaching();
+
+// Connect to redis
+var redis = await ConnectionMultiplexer.ConnectAsync("localhost");
+builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
+
+// Connect to meilisearch
+var meilisearchClient = new MeilisearchClient("http://localhost:7700", Environment.GetEnvironmentVariable("meilisearch_master_key"));
+builder.Services.AddSingleton(meilisearchClient);
 
 builder.Services.AddHttpClient(
     "weather",
@@ -16,18 +25,29 @@ builder.Services.AddHttpClient(
     }
 );
 
-var redis = await ConnectionMultiplexer.ConnectAsync("localhost");
-builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
-
-
 builder.Services.AddSingleton<IWeatherService>(provider =>
     //new WeatherService(provider.GetService<IHttpClientFactory>()!)
     new RandomWeatherService()
 );
 
-// Connect to meilisearch
-var meilisearchClient = new MeilisearchClient("http://localhost:7700", Environment.GetEnvironmentVariable("meilisearch_master_key"));
-builder.Services.AddSingleton(meilisearchClient);
+// Http client for analysing weather data with google generative ai
+// TODO - Fix url
+builder.Services.AddHttpClient(
+    "googleGPT",
+    client =>
+    {
+        client.BaseAddress = new Uri("https://${API_ENDPOINT}/v1/projects/${PROJECT_ID}/locations/${LOCATION_ID}/publishers/google/models/${MODEL_ID}:predict");
+    }
+);
+
+
+
+
+builder.Services.AddSingleton<IWeatherTipGenerator>(provider =>
+    new RandomWeatherTipGenerator()
+);
+
+
 
 var app = builder.Build();
 
