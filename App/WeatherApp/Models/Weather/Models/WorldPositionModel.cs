@@ -1,11 +1,11 @@
-﻿namespace WeatherApp.Models;
+﻿namespace WeatherApp.Models.Weather.Models;
 
-public class WorldPosition
+public class WorldPositionModel
 {
 	public float Lon { get; set; }
 	public float Lat { get; set; }
 
-	public WorldPosition(float lon, float lat)
+	public WorldPositionModel(float lon, float lat)
 	{
 		Lon = lon;
 		Lat = lat;

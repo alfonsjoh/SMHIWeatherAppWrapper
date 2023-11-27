@@ -1,6 +1,7 @@
 using Meilisearch;
 using StackExchange.Redis;
 using WeatherApp.Models;
+using WeatherApp.Models.Weather;
 using WeatherApp.Models.WeatherTipGeneration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,8 +44,8 @@ builder.Services.AddHttpClient(
 
 
 
-builder.Services.AddSingleton<IWeatherTipGenerator>(provider =>
-    new RandomWeatherTipGenerator()
+builder.Services.AddSingleton<IWeatherDescriptionGenerator>(provider =>
+    new RandomWeatherDescriptionGenerator()
 );
 
 

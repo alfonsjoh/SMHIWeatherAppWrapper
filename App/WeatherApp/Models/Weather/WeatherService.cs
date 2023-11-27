@@ -1,4 +1,7 @@
-﻿namespace WeatherApp.Models;
+﻿using WeatherApp.Models.Weather.Models;
+using WeatherApp.Models.WeatherTipGeneration;
+
+namespace WeatherApp.Models.Weather;
 
 public class WeatherService : IWeatherService
 {
@@ -9,13 +12,13 @@ public class WeatherService : IWeatherService
         _weatherClientFactory = weatherClientFactory;
     }
     
-    public Task<Forecast> GetForecastAsync(WorldPosition position)
+    public Task<ForecastModel> GetForecastAsync(WorldPositionModel positionModel, IWeatherDescriptionGenerator weatherDescriptionGenerator)
     {
         //var weatherClient = _weatherClientFactory.CreateClient("weather");
         throw new NotImplementedException();
     }
 
-    public Task<Forecast> Get10DayForecastAsync(WorldPosition position)
+    public Task<ForecastModel> Get10DayForecastAsync(WorldPositionModel positionModel, IWeatherDescriptionGenerator weatherDescriptionGenerator)
     {
         //var weatherClient = _weatherClientFactory.CreateClient("weather");
         throw new NotImplementedException();

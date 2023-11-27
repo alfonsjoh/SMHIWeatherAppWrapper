@@ -1,4 +1,6 @@
 ﻿using System.Text.Json.Serialization;
+using WeatherApp.Models.Weather;
+using WeatherApp.Models.Weather.Models;
 
 namespace WeatherApp.Models;
 
@@ -12,7 +14,7 @@ public class City
     public string County { get; set; }
     
     [JsonIgnore]
-    public WorldPosition Position => new WorldPosition(Lon, Lat);
+    public WorldPositionModel PositionModel => new WorldPositionModel(Lon, Lat);
     
     public override string ToString()
     {
@@ -26,7 +28,7 @@ public class City
     
     public ulong GetRedisId()
     {
-        return Position.GetByteRepresentation();
+        return PositionModel.GetByteRepresentation();
     }
     
     public ApiCity ToApiCity()

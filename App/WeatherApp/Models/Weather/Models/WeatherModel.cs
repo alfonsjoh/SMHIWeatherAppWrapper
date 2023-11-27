@@ -1,6 +1,6 @@
-﻿namespace WeatherApp.Models;
+﻿namespace WeatherApp.Models.Weather.Models;
 
-public record Weather
+public record WeatherModel
 (
     DateTime DateTime,
     float Temperature,
@@ -9,5 +9,5 @@ public record Weather
     float HighTemp,
     float WindSpeed,
     string WindDirection, // ex. "NE", "S", "SW"
-    Icon Icon
+    IconModel Icon
 );

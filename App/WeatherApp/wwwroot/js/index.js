@@ -1,6 +1,9 @@
 ﻿const locationInput = $("#location-input");
+
 const forecastView = $("#forecast-view")
 const forecast10View = $("#forecast10-view")
+const forecastDescription = $("#forecast-description")
+
 const autoCompleteView = $("#location-autocomplete")
 
 let currentLocation = {name: "", index: ""};
@@ -105,6 +108,8 @@ function updateForecastView(forecast){
     let weathers = forecast["prognosis"].map(getForecastWeatherView);
     
     forecastView.append(...weathers);
+    
+    forecastDescription.text(forecast["description"]);
 }
 
 function updateForecast10View(forecast){

@@ -1,10 +1,13 @@
-﻿namespace WeatherApp.Models;
+﻿using WeatherApp.Models.Weather.Models;
+using WeatherApp.Models.WeatherTipGeneration;
+
+namespace WeatherApp.Models.Weather;
 
 public class RandomWeatherService : IWeatherService
 {
     private readonly Random _rng = new();
     private static readonly string[] Directions = { "S", "N", "W", "E", "SE", "SW", "NE", "NW" };
-    private static readonly Icon[] Icons = {
+    private static readonly IconModel[] Icons = {
         new ("/icons/01d.png", "Clear sky"),        new ("/icons/01n.png", "Clear sky"),
         new ("/icons/02d.png", "Few clouds"),       new ("/icons/02n.png", "Few clouds"),
         new ("/icons/03d.png", "Scattered clouds"), new ("/icons/03n.png", "Scattered clouds"),
@@ -16,10 +19,10 @@ public class RandomWeatherService : IWeatherService
         new ("/icons/50d.png", "Mist"),             new ("/icons/50n.png", "Mist")
     };
 
-    public async Task<Forecast> GetForecastAsync(WorldPosition position)
+    public async Task<ForecastModel> GetForecastAsync(WorldPositionModel positionModel, IWeatherDescriptionGenerator weatherDescriptionGenerator)
     {
         
-        var prognosis = new List<Weather>();
+        var prognosis = new List<WeatherModel>();
         await Task.Run(() =>
         {
             var now = DateTime.Now;
@@ -29,7 +32,7 @@ public class RandomWeatherService : IWeatherService
             {
                 var temp = _rng.NextSingle() * 40 + 273.15f - 10;
                 
-                prognosis.Add(new Weather(now + TimeSpan.FromHours(1) * i, 
+                prognosis.Add(new WeatherModel(now + TimeSpan.FromHours(1) * i, 
                     temp,
                     _rng.NextSingle()*5,
                     temp - _rng.NextSingle() * 5,  
@@ -40,12 +43,15 @@ public class RandomWeatherService : IWeatherService
             }
         });
 
-        return new Forecast(prognosis);
+        var forecast = new ForecastModel(prognosis);
+        weatherDescriptionGenerator.SetWeatherDescription(ref forecast);
+
+        return forecast;
     }
 
-    public async Task<Forecast> Get10DayForecastAsync(WorldPosition position)
+    public async Task<ForecastModel> Get10DayForecastAsync(WorldPositionModel positionModel, IWeatherDescriptionGenerator weatherDescriptionGenerator)
     {
-        var prognosis = new List<Weather>();
+        var prognosis = new List<WeatherModel>();
         await Task.Run(() =>
         {
             var now = DateTime.Now;
@@ -55,7 +61,7 @@ public class RandomWeatherService : IWeatherService
             {
                 var temp = _rng.NextSingle() * 40 + 273.15f - 10;
                 
-                prognosis.Add(new Weather(now + TimeSpan.FromDays(1) * i, 
+                prognosis.Add(new WeatherModel(now + TimeSpan.FromDays(1) * i, 
                     temp,
                     _rng.NextSingle()*5,
                     temp - _rng.NextSingle() * 5,  
@@ -66,6 +72,6 @@ public class RandomWeatherService : IWeatherService
             }
         });
 
-        return new Forecast(prognosis);
+        return new ForecastModel(prognosis);
     }
 }

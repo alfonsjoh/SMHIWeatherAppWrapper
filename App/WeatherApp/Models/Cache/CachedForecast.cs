@@ -4,6 +4,9 @@ using System.Text.Json.Serialization;
 using System.Text.RegularExpressions;
 using Meilisearch;
 using StackExchange.Redis;
+using WeatherApp.Models.Weather;
+using WeatherApp.Models.Weather.Models;
+using WeatherApp.Models.WeatherTipGeneration;
 
 namespace WeatherApp.Models;
 
@@ -16,7 +19,7 @@ public partial class CachedForecast
     #endif
     
     public DateTime Timeout { get; set; }
-    public Forecast Forecast { get; set; }
+    public ForecastModel ForecastModel { get; set; }
     
     [JsonIgnore]
     public bool IsExpired => Timeout < DateTime.Now;
@@ -24,12 +27,12 @@ public partial class CachedForecast
     public CachedForecast()
     {
         Timeout = DateTime.Now;
-        Forecast = new Forecast(new List<Weather>());
+        ForecastModel = new ForecastModel(new List<WeatherModel>(), "");
     }
     
-    public CachedForecast(Forecast forecast, TimeSpan timeout)
+    public CachedForecast(ForecastModel forecastModel, TimeSpan timeout)
     {
-        Forecast = forecast;
+        ForecastModel = forecastModel;
         Timeout = DateTime.Now + timeout;
     }
 
@@ -41,13 +44,15 @@ public partial class CachedForecast
     /// <param name="redisConnection"></param>
     /// <param name="meilisearchClient"></param>
     /// <param name="forecastService"></param>
+    /// <param name="weatherDescriptionGenerator"></param>
     /// <param name="duration">The duration that the cache will kept in seconds</param>
-    public static async Task<Forecast?> TryGetForecastByCacheOrServiceAsync(
+    public static async Task<ForecastModel?> TryGetForecastByCacheOrServiceAsync(
         string type,
         string locationId,
         IConnectionMultiplexer redisConnection,
         MeilisearchClient meilisearchClient,
-        Func<WorldPosition, Task<Forecast>> forecastService,
+        IWeatherService.GetForecastAsyncDelegate forecastService,
+        IWeatherDescriptionGenerator weatherDescriptionGenerator, 
         double duration=DefaultDuration)
     {
         // Validate that the id is safe for sending to Meilisearch
@@ -68,14 +73,14 @@ public partial class CachedForecast
             return null;
         }
         
-        
+        // Get redis database key with GetRedisId() method 
         var redisKey = $"{type}:{city.GetRedisId()}";
 
         // Check if we have a cached response
         var db = redisConnection.GetDatabase();
         byte[]? cachedResponse = await db.StringGetAsync(redisKey);
 
-        Forecast? forecast = null;
+        ForecastModel? forecast = null;
 
         if (cachedResponse != null)
         {
@@ -87,14 +92,14 @@ public partial class CachedForecast
             // Check if the cached response is valid.
             if (cached is { IsExpired: false }) // Checks both null and IsExpired == false
             {
-                forecast = cached.Forecast;
+                forecast = cached.ForecastModel;
             }
         }
 
         // Return the cached response if it is valid
         if (forecast != null) return forecast;
         
-        forecast = await forecastService(city.Position);
+        forecast = await forecastService(city.PositionModel, weatherDescriptionGenerator);
         
         var cacheTimespan = TimeSpan.FromSeconds(duration);
         var cachedForecast = JsonSerializer.Serialize(new CachedForecast(forecast, cacheTimespan));
