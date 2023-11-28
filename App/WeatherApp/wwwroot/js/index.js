@@ -25,7 +25,7 @@ async function getForecast10(location){
 }
 
 function kelvinToCelsius(kelvin){
-    return (kelvin - 273.15).toFixed(1)
+    return (kelvin - 273.15).toFixed(0)
 }
 
 function getDayName(dateStr, locale) {
@@ -64,7 +64,7 @@ function getForecastWeatherView(weather){
         .attr("src", weather["icon"]["source"]) // Weather icon
         .addClass("weather-icon");
     
-    weather_div.append(temperature, time, icon);
+    weather_div.append(time, icon, temperature);
     
     return weather_div;
 }
@@ -82,7 +82,7 @@ function getForecast10WeatherView(weather) {
     
     let rain = $("<p></p>")
         .addClass("precipitation")
-        .text(weather["precipitation"].toFixed(1))
+        .text(weather["precipitation"].toFixed(1).replace(".", ",") + " mm")
     
     let icon = $('<img/>')
         .attr("alt", weather["icon"]["alternative"])
@@ -95,7 +95,11 @@ function getForecast10WeatherView(weather) {
 
     let highestTemperature = $("<p></p>")
         .addClass("temperature")
-        .text(kelvinToCelsius(weather["lowTemp"]) + "°");
+        .text(kelvinToCelsius(weather["highTemp"]) + "°");
+    /*
+    let groupDiv = $("<div></div>")
+        .addClass("weather10Group");
+    groupDiv.append(icon, lowestTemperature, highestTemperature)*/
     
     weather_div.append(day, rain, icon, lowestTemperature, highestTemperature);
     

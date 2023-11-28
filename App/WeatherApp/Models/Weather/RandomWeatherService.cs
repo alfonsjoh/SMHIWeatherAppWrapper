@@ -34,7 +34,7 @@ public class RandomWeatherService : IWeatherService
                 
                 prognosis.Add(new WeatherModel(now + TimeSpan.FromHours(1) * i, 
                     temp,
-                    _rng.NextSingle()*5,
+                    _rng.NextSingle()*12,
                     temp - _rng.NextSingle() * 5,  
                     temp + _rng.NextSingle() * 5,  
                     _rng.NextSingle() * 10 - 5,

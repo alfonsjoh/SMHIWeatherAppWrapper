@@ -1,10 +1,17 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
 html {
-  font-size: 14px;
+  font-family: "Arial";
+  font-weight: 500;
+  color: #eeeeee;
 }
 
 @media (min-width: 768px) {
   html {
-    font-size: 16px;
+    font-size: 20px;
   }
 }
 
@@ -19,9 +26,17 @@ html {
 
 body {
   margin-bottom: 60px;
+  background: #32b9ff;
 }
 
 
 .hidden{
   display: none;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+  margin: 0 auto;
 }
