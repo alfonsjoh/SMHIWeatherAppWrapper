@@ -4,10 +4,7 @@
 
 .forecast-view{
     display: flex;
-    background: #00000055;
-    border-radius: 20px;
     overflow-x: scroll;
-    padding: 20px;
 }
 
 .weather{
@@ -40,10 +37,6 @@
 .forecast10-view{
     display: flex;
     flex-direction: column;
-    background: #00000055;
-    border-radius: 20px;
-    padding: 20px;
-    margin-top: 40px;
 }
 
 .weather10{
@@ -64,9 +57,6 @@
 }
 
 .forecast-description{
-    background: #00000055;
-    border-radius: 20px;
-    padding: 40px 20px;
-    margin: 40px 0;
+    
     font-weight: 300;
 }
