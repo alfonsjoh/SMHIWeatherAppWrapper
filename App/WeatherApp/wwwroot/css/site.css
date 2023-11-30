@@ -1,6 +1,7 @@
 *{
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -48,22 +49,31 @@ body {
   margin: 40px 0;
 }
 
-
-.scrollbar{
-  scrollbar-width: thin;
-  
+.scrollbar-x{
+  overflow-x: scroll;
 }
 
+.scrollbar-y{
+  overflow-y: scroll;
+}
+
+.scrollbar-x::-webkit-scrollbar{
+  height: 20px;
+}
+
+.scrollbar-y::-webkit-scrollbar{
+  width: 20px;
+}
 
 .scrollbar::-webkit-scrollbar{
-  background-color: transparent;
-  padding: 2px;
+  /*background-color: transparent;*/
+  padding: 10px;
 }
 
 .scrollbar::-webkit-scrollbar-thumb {
   background-color: #d6dee1;
-  border-radius: 20px;
-  border: 6px solid transparent;
+  border-radius: 999em;
+  border: 8px solid transparent;
   background-clip: content-box;
 }
 
