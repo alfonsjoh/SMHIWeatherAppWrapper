@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="256"
+   height="256"
+   viewBox="0 0 67.733376 67.733341"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   sodipodi:docname="Mist.svg"
+   inkscape:export-filename="png/mist.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="2"
+     inkscape:cx="24.75"
+     inkscape:cy="88.5"
+     inkscape:window-width="3440"
+     inkscape:window-height="1369"
+     inkscape:window-x="1912"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Lager 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       inkscape:groupmode="layer"
+       id="layer2"
+       inkscape:label="Raindropp">
+      <path
+         style="fill:#55ffff;fill-opacity:0;stroke:#16adff;stroke-width:4.40843;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:markers fill stroke"
+         d="m 13.919325,9.5095732 c 12.908256,3.55e-4 20.368017,3.55e-4 33.191747,0"
+         id="path30996"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:#55ffff;fill-opacity:0;stroke:#16adff;stroke-width:4.40843;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:markers fill stroke"
+         d="M 3.2523112,19.252517 H 64.481022"
+         id="path31520" />
+      <path
+         style="fill:#55ffff;fill-opacity:0;stroke:#16adff;stroke-width:4.40843;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:markers fill stroke"
+         d="m 15.851301,28.995328 c 14.806093,0 23.455963,0 26.528251,0"
+         id="path31522"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:#55ffff;fill-opacity:0;stroke:#16adff;stroke-width:4.40843;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:markers fill stroke"
+         d="M 6.3326048,38.738138 H 61.400728"
+         id="path31524"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:#55ffff;fill-opacity:0;stroke:#16adff;stroke-width:4.40843;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:markers fill stroke"
+         d="M 15.851301,48.480949 H 55.45509"
+         id="path31528"
+         sodipodi:nodetypes="cc" />
+      <path
+         style="fill:#55ffff;fill-opacity:0;stroke:#16adff;stroke-width:4.40843;stroke-linecap:round;stroke-linejoin:round;stroke-opacity:1;paint-order:markers fill stroke"
+         d="M 19.397802,58.22376 H 50.452199"
+         id="path31530"
+         sodipodi:nodetypes="cc" />
+    </g>
+    <g
+       inkscape:groupmode="layer"
+       id="layer2-8"
+       inkscape:label="Raindropp"
+       transform="translate(39.528224,20.311806)" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer2-8-8"
+       inkscape:label="Raindropp"
+       transform="translate(53.185698,-2.4194669)" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer2-1"
+       inkscape:label="Raindropp"
+       transform="translate(20.351636,28.917884)" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer2-0"
+       inkscape:label="Raindropp"
+       transform="translate(0.33314846,42.107636)" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer2-4"
+       inkscape:label="Raindropp"
+       transform="translate(51.408354,30.695228)" />
+    <g
+       inkscape:groupmode="layer"
+       id="layer2-5"
+       inkscape:label="Raindropp"
+       transform="translate(41.399111,51.087893)" />
+  </g>
+</svg>

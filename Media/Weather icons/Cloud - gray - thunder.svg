@@ -2,14 +2,14 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="269"
-   height="264"
-   viewBox="0 0 71.172945 69.849964"
+   width="256"
+   height="256"
+   viewBox="0 0 67.73336 67.733298"
    version="1.1"
    id="svg5"
    inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
    sodipodi:docname="Cloud - gray - thunder.svg"
-   inkscape:export-filename="Cloud - grey - thunder.png"
+   inkscape:export-filename="./png/Cloud - grey - thunder.png"
    inkscape:export-xdpi="96"
    inkscape:export-ydpi="96"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
@@ -29,8 +29,8 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="1.4142136"
-     inkscape:cx="50.911688"
-     inkscape:cy="-28.637825"
+     inkscape:cx="31.466251"
+     inkscape:cy="-28.637824"
      inkscape:window-width="1718"
      inkscape:window-height="1360"
      inkscape:window-x="1913"
@@ -48,7 +48,7 @@
        x2="45.522285"
        y2="36.124928"
        gradientUnits="userSpaceOnUse"
-       gradientTransform="matrix(0.78307675,-0.07659938,0.07659938,0.78307675,2.2136962,23.974226)" />
+       gradientTransform="matrix(0.74352604,-0.07273059,0.07273059,0.74352604,2.0543856,24.945092)" />
     <linearGradient
        inkscape:collect="always"
        id="linearGradient5634">
@@ -69,50 +69,50 @@
     <circle
        style="fill:#4a5a5f;fill-opacity:1;stroke:#040000;stroke-width:0"
        id="path234-9"
-       cy="27.972681"
-       cx="57.679165"
-       r="13.229166" />
+       cy="28.741596"
+       cx="54.718472"
+       r="12.561003" />
     <circle
        style="fill:#4a5a5f;fill-opacity:1;stroke:#040000;stroke-width:0"
        id="path234-9-1"
-       cy="18.831589"
-       cx="48.69994"
-       r="13.229166" />
+       cy="20.062191"
+       cx="46.192757"
+       r="12.561003" />
     <rect
        style="fill:#4a5a5f;fill-opacity:1;stroke:#040000;stroke-width:0"
        id="rect1098"
-       width="23.848427"
-       height="26.455408"
-       x="33.830738"
-       y="14.743516" />
+       width="22.643919"
+       height="25.11923"
+       x="32.074551"
+       y="16.180595" />
     <rect
        style="fill:#2a2f2e;fill-opacity:1;stroke:#040000;stroke-width:0"
        id="rect1098-8"
-       width="21.530279"
-       height="19.563942"
-       x="12.612442"
-       y="21.634979" />
+       width="20.442854"
+       height="18.57583"
+       x="11.927924"
+       y="22.723991" />
     <circle
        style="fill:#2a2f2e;fill-opacity:1;stroke:#040000;stroke-width:0"
        id="path234"
-       cy="13.302316"
-       cx="26.402302"
-       r="13.229166" />
+       cy="14.812185"
+       cx="25.021301"
+       r="12.561003" />
     <circle
        style="fill:#2a2f2e;fill-opacity:1;stroke:#040000;stroke-width:0"
        id="path234-91-9"
-       cy="27.966261"
-       cx="13.757198"
-       r="13.229166" />
+       cy="28.7355"
+       cx="13.014862"
+       r="12.561003" />
     <circle
        style="fill:#2a2f2e;fill-opacity:1;stroke:#040000;stroke-width:0"
        id="path234-91"
-       cy="27.972376"
-       cx="33.832439"
-       r="13.229166" />
+       cy="28.741306"
+       cx="32.076168"
+       r="12.561003" />
     <path
        id="path5429-9"
        style="fill:url(#linearGradient5636);fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0;stroke-opacity:1"
-       d="M 34.813979,32.913587 19.645224,47.191562 29.623052,52.312978 25.694959,66.66759 40.995627,52.531139 31.021605,47.294142 Z" />
+       d="m 33.008132,33.432954 -14.402629,13.55684 9.473879,4.86275 -3.729697,13.629606 14.52788,-13.422464 -9.470266,-4.972493 z" />
   </g>
 </svg>
