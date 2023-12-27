@@ -81,14 +81,16 @@ function getForecast10WeatherView(weather) {
         .text(dayName);
     
     let rain = $("<p></p>")
-        .addClass("precipitation")
-        .text(weather["precipitation"].toFixed(1).replace(".", ",") + " mm")
+        .addClass("precipitation");
+    if (weather["precipitation"] !== 0) {
+        rain.text(weather["precipitation"].toFixed(1).replace(".", ",") + " mm")
+    }
     
     let icon = $('<img/>')
         .attr("alt", weather["icon"]["alternative"])
         .attr("src", weather["icon"]["source"]) // Weather icon
         .addClass("weather-icon");
-
+    
     let lowestTemperature = $("<p></p>")
         .addClass("temperature")
         .text(kelvinToCelsius(weather["lowTemp"]) + "°");

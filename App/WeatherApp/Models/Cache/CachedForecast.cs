@@ -52,7 +52,7 @@ public partial class CachedForecast
         IConnectionMultiplexer redisConnection,
         MeilisearchClient meilisearchClient,
         IWeatherService.GetForecastAsyncDelegate forecastService,
-        IWeatherDescriptionGenerator weatherDescriptionGenerator, 
+        IWeatherDescriptionGenerator? weatherDescriptionGenerator=null, 
         double duration=DefaultDuration)
     {
         // Validate that the id is safe for sending to Meilisearch
@@ -99,8 +99,11 @@ public partial class CachedForecast
         // Return the cached response if it is valid
         if (forecast != null) return forecast;
         
-        forecast = await forecastService(city.PositionModel, weatherDescriptionGenerator);
-        
+        forecast = await forecastService(city.PositionModel);
+
+        // Generate the weather description if a generator is provided
+        weatherDescriptionGenerator?.SetWeatherDescription(ref forecast);
+
         var cacheTimespan = TimeSpan.FromSeconds(duration);
         var cachedForecast = JsonSerializer.Serialize(new CachedForecast(forecast, cacheTimespan));
         

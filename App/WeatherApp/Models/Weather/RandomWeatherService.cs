@@ -19,13 +19,13 @@ public class RandomWeatherService : IWeatherService
         new ("/icons/50d.png", "Mist"),             new ("/icons/50n.png", "Mist")
     };
 
-    public async Task<ForecastModel> GetForecastAsync(WorldPositionModel positionModel, IWeatherDescriptionGenerator weatherDescriptionGenerator)
+    public async Task<ForecastModel> GetForecastAsync(WorldPositionModel positionModel)
     {
         
         var prognosis = new List<WeatherModel>();
         await Task.Run(() =>
         {
-            var now = DateTime.Now;
+            var now = DateTime.UtcNow;
             now = new DateTime(now.Year, now.Month, now.Day, now.Hour, 0, 0);
             
             for (int i = 0; i < 20; i++)
@@ -44,12 +44,11 @@ public class RandomWeatherService : IWeatherService
         });
 
         var forecast = new ForecastModel(prognosis);
-        weatherDescriptionGenerator.SetWeatherDescription(ref forecast);
 
         return forecast;
     }
 
-    public async Task<ForecastModel> Get10DayForecastAsync(WorldPositionModel positionModel, IWeatherDescriptionGenerator weatherDescriptionGenerator)
+    public async Task<ForecastModel> Get10DayForecastAsync(WorldPositionModel positionModel)
     {
         var prognosis = new List<WeatherModel>();
         await Task.Run(() =>

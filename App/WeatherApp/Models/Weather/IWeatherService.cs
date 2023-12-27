@@ -14,10 +14,9 @@ namespace WeatherApp.Models.Weather;
 /// </summary>
 public interface IWeatherService
 {
-    Task<ForecastModel> GetForecastAsync(WorldPositionModel positionModel, IWeatherDescriptionGenerator weatherDescriptionGenerator);
+    Task<ForecastModel> GetForecastAsync(WorldPositionModel positionModel);
 
-    Task<ForecastModel> Get10DayForecastAsync(WorldPositionModel positionModel, IWeatherDescriptionGenerator weatherDescriptionGenerator);
+    Task<ForecastModel> Get10DayForecastAsync(WorldPositionModel positionModel);
 
-    delegate Task<ForecastModel> GetForecastAsyncDelegate(WorldPositionModel positionModel,
-        IWeatherDescriptionGenerator weatherDescriptionGenerator);
+    delegate Task<ForecastModel> GetForecastAsyncDelegate(WorldPositionModel positionModel);
 }

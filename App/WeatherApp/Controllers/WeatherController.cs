@@ -70,8 +70,7 @@ public class WeatherController : Controller
             location,
             _redisConnection,
             _meilisearchClient,
-            _weatherService.Get10DayForecastAsync,
-            _weatherDescriptionGenerator
+            _weatherService.Get10DayForecastAsync
         );
         
         if (forecast == null)

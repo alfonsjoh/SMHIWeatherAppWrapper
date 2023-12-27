@@ -1,6 +1,5 @@
 using Meilisearch;
 using StackExchange.Redis;
-using WeatherApp.Models;
 using WeatherApp.Models.Weather;
 using WeatherApp.Models.WeatherTipGeneration;
 
@@ -15,21 +14,11 @@ var redis = await ConnectionMultiplexer.ConnectAsync("localhost");
 builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
 
 // Connect to meilisearch
-var meilisearchClient = new MeilisearchClient("http://localhost:7700", Environment.GetEnvironmentVariable("meilisearch_master_key"));
+var meilisearchClient = new MeilisearchClient("http://localhost:7700",
+    Environment.GetEnvironmentVariable("meilisearch_master_key"));
 builder.Services.AddSingleton(meilisearchClient);
 
-builder.Services.AddHttpClient(
-    "weather",
-    client =>
-    {
-        client.BaseAddress = new Uri("https://api.openweathermap.org/data/");
-    }
-);
-
-builder.Services.AddSingleton<IWeatherService>(provider =>
-    //new WeatherService(provider.GetService<IHttpClientFactory>()!)
-    new RandomWeatherService()
-);
+WeatherServiceManager.ConfigureWeatherService(builder);
 
 // Http client for analysing weather data with google generative ai
 // TODO - Fix url
@@ -41,14 +30,9 @@ builder.Services.AddHttpClient(
     }
 );
 
-
-
-
 builder.Services.AddSingleton<IWeatherDescriptionGenerator>(provider =>
     new RandomWeatherDescriptionGenerator()
 );
-
-
 
 var app = builder.Build();
 

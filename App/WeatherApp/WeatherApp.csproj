@@ -65,6 +65,7 @@
     <ItemGroup>
       <PackageReference Include="MeiliSearch" Version="0.14.4" />
       <PackageReference Include="NRedisStack" Version="0.10.1" />
+      <PackageReference Include="SolarCalculator" Version="3.3.0" />
     </ItemGroup>
 
     <ItemGroup>

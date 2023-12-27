@@ -1,6 +1,20 @@
 ﻿namespace WeatherApp.Models.Weather.Models;
 
-public record IconModel(
-    string Source,
-    string Alternative // Icon text for screen reader
-);
+public class IconModel
+{
+    public IconModel(string source,
+        string alternative)
+    {
+        Source = source;
+        Alternative = alternative;
+    }
+
+    public IconModel()
+    {
+        Source = "";
+        Alternative = "";
+    }
+
+    public string Source { get; init; }
+    public string Alternative { get; init; }
+}
