@@ -98,8 +98,16 @@ public partial class CachedForecast
 
         // Return the cached response if it is valid
         if (forecast != null) return forecast;
-        
-        forecast = await forecastService(city.PositionModel);
+
+        try
+        {
+            forecast = await forecastService(city.PositionModel);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            return null;
+        }
 
         // Generate the weather description if a generator is provided
         weatherDescriptionGenerator?.SetWeatherDescription(ref forecast);
