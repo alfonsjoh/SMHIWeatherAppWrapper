@@ -2,6 +2,7 @@ using Meilisearch;
 using StackExchange.Redis;
 using WeatherApp.Models.Weather;
 using WeatherApp.Models.WeatherTipGeneration;
+using WeatherApp.Models.WeatherTipGeneration.LogicBased;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,18 +21,8 @@ builder.Services.AddSingleton(meilisearchClient);
 
 WeatherServiceManager.ConfigureWeatherService(builder);
 
-// Http client for analysing weather data with google generative ai
-// TODO - Fix url
-builder.Services.AddHttpClient(
-    "googleGPT",
-    client =>
-    {
-        client.BaseAddress = new Uri("https://${API_ENDPOINT}/v1/projects/${PROJECT_ID}/locations/${LOCATION_ID}/publishers/google/models/${MODEL_ID}:predict");
-    }
-);
-
 builder.Services.AddSingleton<IWeatherDescriptionGenerator>(provider =>
-    new RandomWeatherDescriptionGenerator()
+    new LogicBasedWeatherDescriptionGenerator()
 );
 
 var app = builder.Build();
