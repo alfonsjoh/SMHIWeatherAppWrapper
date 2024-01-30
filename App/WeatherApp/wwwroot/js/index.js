@@ -116,6 +116,12 @@ function updateForecastView(forecast){
     forecastView.append(...weathers);
     
     forecastDescription.text(forecast["description"]);
+    if (forecast["description"] === ""){
+        forecastDescription.addClass("hidden");
+    }
+    else {
+        forecastDescription.removeClass("hidden");
+    }
 }
 
 function updateForecast10View(forecast){
