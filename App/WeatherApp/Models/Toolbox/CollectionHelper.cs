@@ -9,4 +9,11 @@ public static class CollectionHelper
             .First()
             .Key;
     }
+    
+    public static T RandomElement<T>(this IEnumerable<T> collection, Random rng)
+    {
+        var enumerable = collection as T[] ?? collection.ToArray();
+        var index = rng.Next(enumerable.Length);
+        return enumerable.ElementAt(index);
+    }
 }
