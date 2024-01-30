@@ -72,4 +72,8 @@
       <None Include="wwwroot\css\index.css" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Models\WeatherTipGeneration\LogicBased\" />
+    </ItemGroup>
+
 </Project>
