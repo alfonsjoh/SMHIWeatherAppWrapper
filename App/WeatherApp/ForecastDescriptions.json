@@ -1,0 +1,69 @@
+﻿[
+  {
+    "keyword": "sun",
+    "descriptions": [
+      "It will be sunny, time to go to the beach.",
+      "It will probably be sunny, so bring a hat.",
+      "The sun is coming. Time to get a tan!",
+      "Expect to see some sun.",
+      "Expect to see some sun, so bring your sunglasses."
+    ]
+  },
+  {
+    "keyword": "rain",
+    "descriptions": [
+      "There will be rain!",
+      "Rain is expected!",
+      "Rain is coming, bring an umbrella!",
+      "Rain is coming, put on the raincoat!"
+    ]
+  },
+  {
+    "keyword": "clear",
+    "descriptions": [
+      "The sky will be clear!"
+    ]
+  },
+  {
+    "keyword": "fog",
+    "descriptions": [
+      "Expect to see some fog.",
+      "Expect to see some fog, so drive carefully."
+    ]
+  },
+  {
+    "keyword": "snow",
+    "descriptions": [
+      "It will be snowy, time to build a snowman.",
+      "It will probably snow, so bring a coat.",
+      "The snow is coming. It's skiing time!"
+    ]
+  },
+  {
+    "keyword": "thunder",
+    "descriptions": [
+      "Thunderstorms are expected!",
+      "Thunderstorms are expected, so stay inside and watch a movie!",
+      "Expect to hear some thunder."
+    ]
+  },
+  {
+    "keyword": "cloud",
+    "descriptions": [
+      "It will be cloudy.",
+      "Expect to see some clouds."
+    ]
+  },
+  {
+    "keyword": "overcast",
+    "descriptions": [
+      "It will be overcast."
+    ]
+  },
+  {
+    "keyword": "sleet",
+    "descriptions": [
+      "Sleet is expected!"
+    ]
+  }
+]
