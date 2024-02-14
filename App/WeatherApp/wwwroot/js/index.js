@@ -8,6 +8,9 @@ const autoCompleteView = $("#location-autocomplete")
 
 let currentLocation = {name: "", index: ""};
 
+// Toggles if wind should be shown in the 10 day forecast
+const SHOW_WIND = true;
+
 async function getForecast(location){
     let result = await fetch("/api/weather/forecast?" + new URLSearchParams({location: location}));
     if (!result.ok){
@@ -85,6 +88,12 @@ function getForecast10WeatherView(weather) {
     if (weather["precipitation"] !== 0) {
         rain.text(weather["precipitation"].toFixed(1).replace(".", ",") + " mm")
     }
+
+    let wind = $("<p></p>")
+        .addClass("wind");
+    if (weather["windSpeed"] !== 0 && SHOW_WIND) {
+        wind.text(weather["windSpeed"].toFixed(1).replace(".", ",") + " m/s")
+    }
     
     let icon = $('<img/>')
         .attr("alt", weather["icon"]["alternative"])
@@ -103,7 +112,7 @@ function getForecast10WeatherView(weather) {
         .addClass("weather10Group");
     groupDiv.append(icon, lowestTemperature, highestTemperature)*/
     
-    weather_div.append(day, rain, icon, lowestTemperature, highestTemperature);
+    weather_div.append(day, rain, wind, icon, lowestTemperature, highestTemperature);
     
     return weather_div;
 }

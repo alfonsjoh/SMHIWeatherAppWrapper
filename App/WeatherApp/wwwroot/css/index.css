@@ -57,7 +57,7 @@
 
 .weather10{
     display: grid;
-    grid-template-columns: 150px 1fr 80px 80px auto;
+    grid-template-columns: 80px 120px 1fr 80px 80px auto;
     align-items: center;
     margin: 8px;
 }
@@ -73,6 +73,11 @@
 }
 
 .weather10 .precipitation{
+    width: 120px;
+    text-align: right;
+}
+
+.weather10 .wind{
     width: 120px;
     text-align: right;
 }
