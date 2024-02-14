@@ -3,18 +3,18 @@
 public class IconModel
 {
     public IconModel(string source,
-        string alternative)
+        string description)
     {
         Source = source;
-        Alternative = alternative;
+        Description = description;
     }
 
     public IconModel()
     {
         Source = "";
-        Alternative = "";
+        Description = "";
     }
 
     public string Source { get; init; }
-    public string Alternative { get; init; }
+    public string Description { get; init; }
 }
