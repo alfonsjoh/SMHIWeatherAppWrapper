@@ -33,7 +33,7 @@ public static class IconConverter
         {24, "13"},	// Heavy sleet
         {25, "13"},	// Light snowfall
         {26, "13"},	// Moderate snowfall
-        {27, "13"}	// Heavy snowfall
+        {27, "13"},	// Heavy snowfall
     };
     
     private static readonly Dictionary<int, string> IconDescriptionMap = new()
@@ -64,8 +64,13 @@ public static class IconConverter
         {24, "Heavy sleet"},
         {25, "Light snowfall"},
         {26, "Moderate snowfall"},
-        {27, "Heavy snowfall3"}
+        {27, "Heavy snowfall"},
     };
+
+    static IconConverter()
+    {
+        
+    }
     
     private static string GetIcon(int weatherCode, WorldPositionModel positionModel, DateTime dateTime)
     {
