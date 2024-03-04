@@ -28,7 +28,11 @@ async function getForecast10(location){
 }
 
 function kelvinToCelsius(kelvin){
-    return (kelvin - 273.15).toFixed(0)
+    let celcius = (kelvin - 273.15).toFixed(0)
+    if (celcius === "-0"){
+        return "0";
+    }
+    return celcius;
 }
 
 function getDayName(dateStr, locale) {
