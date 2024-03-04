@@ -1,14 +1,15 @@
 ﻿
 .sun-icon{
     position: absolute;
-    top: 30px;
-    right: 50px;
+    top: 5px;
+    right: -200px;
     z-index: -999;
     width: 300px;
 }
 
 .location-input-container{
     margin-top: 10px;
+    position: relative;
 }
 
 .location-input{
