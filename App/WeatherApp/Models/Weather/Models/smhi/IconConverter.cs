@@ -1,78 +1,39 @@
-﻿using Innovative.SolarCalculator;
+﻿using System.Text.Json;
+using System.Text.Json.Serialization;
+using Innovative.SolarCalculator;
 using WeatherApp.Models.Toolbox;
 
 namespace WeatherApp.Models.Weather.Models.smhi;
 
-public static class IconConverter
+public class IconConverter
 {
-    private static readonly Dictionary<int, string> IconMap = new()
-    {
-        {1, "01"},	// Clear sky
-        {2, "01"},	// Nearly clear sky
-        {3, "02"},	// Variable cloudiness
-        {4, "02"},	// Halfclear sky
-        {5, "02"},	// Cloudy sky
-        {6, "03"},	// Overcast
-        {7, "03"},	// Fog
-        {8, "09"},	// Light rain showers
-        {9, "10"},	// Moderate rain showers
-        {10, "10"},	// Heavy rain showers
-        {11, "11"},	// Thunderstorm
-        {12, "13"},	// Light sleet showers
-        {13, "13"},	// Moderate sleet showers
-        {14, "13"},	// Heavy sleet showers
-        {15, "13"},	// Light snow showers
-        {16, "13"},	// Moderate snow showers
-        {17, "13"},	// Heavy snow showers
-        {18, "09"},	// Light rain
-        {19, "10"},	// Moderate rain
-        {20, "10"},	// Heavy rain
-        {21, "11"},	// Thunder
-        {22, "13"},	// Light sleet
-        {23, "13"},	// Moderate sleet
-        {24, "13"},	// Heavy sleet
-        {25, "13"},	// Light snowfall
-        {26, "13"},	// Moderate snowfall
-        {27, "13"},	// Heavy snowfall
-    };
+    private List<IconConversion> _iconConversions;
     
-    private static readonly Dictionary<int, string> IconDescriptionMap = new()
+    public IconConverter(string iconsFile)
     {
-        {1, "Clear sky"},
-        {2, "Nearly clear sky"},
-        {3, "Variable cloudiness"},
-        {4, "Halfclear sky"},
-        {5, "Cloudy sky"},
-        {6, "Overcast"},
-        {7, "Fog"},
-        {8, "Light rain showers"},
-        {9, "Moderate rain showers"},
-        {10, "Heavy rain showers"},
-        {11, "Thunderstorm"},
-        {12, "Light sleet showers"},
-        {13, "Moderate sleet showers"},
-        {14, "Heavy sleet showers"},
-        {15, "Light snow showers"},
-        {16, "Moderate snow showers"},
-        {17, "Heavy snow showers"},
-        {18, "Light rain"},
-        {19, "Moderate rain"},
-        {20, "Heavy rain"},
-        {21, "Thunder"},
-        {22, "Light sleet"},
-        {23, "Moderate sleet"},
-        {24, "Heavy sleet"},
-        {25, "Light snowfall"},
-        {26, "Moderate snowfall"},
-        {27, "Heavy snowfall"},
-    };
-
-    static IconConverter()
-    {
-        
+        LoadIcons(iconsFile);
     }
     
-    private static string GetIcon(int weatherCode, WorldPositionModel positionModel, DateTime dateTime)
+    private void LoadIcons(string iconsFile)
+    {
+        using var stream = File.OpenRead(iconsFile);
+        _iconConversions = JsonSerializer.Deserialize<List<IconConversion>>(stream) ?? new List<IconConversion>();
+    }
+    
+    private bool TryGetIconConversion(int smhiId, out IconConversion iconConversion)
+    {
+        for (int i = 0, len = _iconConversions.Count; i < len; i++)
+        {
+            if (_iconConversions[i].SmhiId != smhiId) continue;
+            iconConversion = _iconConversions[i];
+            return true;
+        }
+
+        iconConversion = new IconConversion(0, "", "");
+        return false;
+    }
+    
+    private string GetIcon(int weatherCode, WorldPositionModel positionModel, DateTime dateTime)
     {
         // Calculate if it is day or night
         // var sun = SunInfoCalculator.GetSunriseSunsetTime(positionModel, dateTime);
@@ -81,15 +42,15 @@ public static class IconConverter
         // Set the suffix to "n" if it is night and "d" if it is day
         var suffix = dateTime < solarTimes.Sunrise || dateTime > solarTimes.Sunset ? "n" : "d";
 
-        return IconMap.TryGetValue(weatherCode, out var icon) ? $"/icons/{icon}{suffix}.png" : "";
+        return TryGetIconConversion(weatherCode, out var iconConversion) ? $"/icons/{iconConversion.IconId}{suffix}.png" : "";
     }
     
-    private static string GetIconDescription(int weatherCode)
+    private string GetIconDescription(int weatherCode)
     {
-        return IconDescriptionMap.GetValueOrDefault(weatherCode, "");
+        return TryGetIconConversion(weatherCode, out var iconConversion) ? iconConversion.Description : "";
     }
     
-    public static IconModel GetIconModel(int weatherCode, WorldPositionModel positionModel, DateTime dateTime)
+    public IconModel GetIconModel(int weatherCode, WorldPositionModel positionModel, DateTime dateTime)
     {
         return new IconModel(GetIcon(weatherCode, positionModel, dateTime), GetIconDescription(weatherCode));
     }

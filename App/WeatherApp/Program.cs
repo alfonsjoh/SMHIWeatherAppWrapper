@@ -1,6 +1,7 @@
 using Meilisearch;
 using StackExchange.Redis;
 using WeatherApp.Models.Weather;
+using WeatherApp.Models.Weather.Models.smhi;
 using WeatherApp.Models.WeatherTipGeneration;
 using WeatherApp.Models.WeatherTipGeneration.LogicBased;
 
@@ -19,11 +20,17 @@ var meilisearchClient = new MeilisearchClient("http://localhost:7700",
     Environment.GetEnvironmentVariable("meilisearch_master_key"));
 builder.Services.AddSingleton(meilisearchClient);
 
+builder.Services.AddSingleton<IconConverter>(_ =>
+    new IconConverter("SMHIIcons.json")
+);
+
 WeatherServiceManager.ConfigureWeatherService(builder);
+
 
 builder.Services.AddSingleton<IWeatherDescriptionGenerator>(provider =>
     new LogicBasedWeatherDescriptionGenerator()
 );
+
 
 var app = builder.Build();
 

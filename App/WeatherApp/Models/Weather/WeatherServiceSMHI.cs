@@ -1,7 +1,6 @@
 ﻿using System.Globalization;
 using WeatherApp.Models.Toolbox;
 using WeatherApp.Models.Weather.Models;
-using WeatherApp.Models.Weather.Models.openweathermap;
 using WeatherApp.Models.Weather.Models.smhi;
 
 namespace WeatherApp.Models.Weather;
@@ -9,17 +8,19 @@ namespace WeatherApp.Models.Weather;
 public class WeatherServiceSMHI : IWeatherService
 {
     private readonly IHttpClientFactory _weatherClientFactory;
+    private readonly IconConverter _iconConverter;
     
-    public WeatherServiceSMHI(IHttpClientFactory weatherClientFactory)
+    public WeatherServiceSMHI(IHttpClientFactory weatherClientFactory, IconConverter iconConverter)
     {
         _weatherClientFactory = weatherClientFactory;
+        _iconConverter = iconConverter;
     }
 
     private async Task<List<WeatherModel>> Get3HourForecast5Days(WorldPositionModel positionModel)
     {
         var weatherClient = _weatherClientFactory.CreateClient("weather");
 
-        var weatherData = await weatherClient.GetFromJsonAsync<SMHIWeatherData>(
+        var weatherData = await weatherClient.GetFromJsonAsync<WeatherData>(
             $"api/category/pmp3g/version/2/geotype/point/" +
             $"lon/{positionModel.Lon.ToString("F", CultureInfo.InvariantCulture)}/" +
             $"lat/{positionModel.Lat.ToString("F", CultureInfo.InvariantCulture)}/data.json");
@@ -59,7 +60,7 @@ public class WeatherServiceSMHI : IWeatherService
                         weatherModel.Precipitation = weather.values[0];
                         break;
                     case "Wsymb2":
-                        weatherModel.Icon = IconConverter.GetIconModel((int)weather.values[0], positionModel, weatherModel.DateTime);
+                        weatherModel.Icon = _iconConverter.GetIconModel((int)weather.values[0], positionModel, weatherModel.DateTime);
                         break;
                 }
             }
