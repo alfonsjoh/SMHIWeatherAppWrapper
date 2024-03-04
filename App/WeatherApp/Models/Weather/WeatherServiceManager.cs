@@ -1,4 +1,6 @@
-﻿namespace WeatherApp.Models.Weather;
+﻿using WeatherApp.Models.Weather.Models.smhi;
+
+namespace WeatherApp.Models.Weather;
 
 public static class WeatherServiceManager
 {
@@ -6,9 +8,6 @@ public static class WeatherServiceManager
     {
         switch (webApplicationBuilder.Configuration["WeatherService"])
         {
-            case "owp":
-                ConfigureOWM(webApplicationBuilder);
-                break;
             case "smhi":
                 ConfigureSMHI(webApplicationBuilder);
                 break;
@@ -37,22 +36,8 @@ public static class WeatherServiceManager
             }
         );
         webApplicationBuilder.Services.AddSingleton<IWeatherService>(provider =>
-            new WeatherServiceSMHI(provider.GetService<IHttpClientFactory>()!)
-        );
-    }
-
-    private static void ConfigureOWM(WebApplicationBuilder webApplicationBuilder)
-    {
-        webApplicationBuilder.Services.AddHttpClient(
-            "weather",
-            client =>
-            {
-                client.BaseAddress = new Uri("https://api.openweathermap.org/data/");
-            }
-        );
-        webApplicationBuilder.Services.AddSingleton<IWeatherService>(provider =>
-            new WeatherServiceOWM(provider.GetService<IHttpClientFactory>()!,
-                Environment.GetEnvironmentVariable("weatherapi_key")!)
+            new WeatherServiceSMHI(provider.GetService<IHttpClientFactory>()!,
+                                    provider.GetService<IconConverter>()!)
         );
     }
 }
