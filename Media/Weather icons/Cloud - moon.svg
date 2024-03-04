@@ -7,7 +7,7 @@
    viewBox="0 0 67.73336 67.733314"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="Cloud - moon.svg"
    inkscape:export-filename="./png/Cloud - moon.png"
    inkscape:export-xdpi="96"
@@ -28,12 +28,12 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="2"
-     inkscape:cx="29.25"
-     inkscape:cy="146.75"
-     inkscape:window-width="1718"
-     inkscape:window-height="1080"
-     inkscape:window-x="1920"
+     inkscape:zoom="4"
+     inkscape:cx="109.25"
+     inkscape:cy="133.375"
+     inkscape:window-width="2253"
+     inkscape:window-height="2061"
+     inkscape:window-x="-8"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1" />
@@ -67,55 +67,64 @@
      inkscape:label="Lager 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <circle
-       style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234-9"
-       cy="35.509777"
-       cx="54.778683"
-       r="12.557772" />
-    <circle
-       style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234-9-1"
-       cy="26.832603"
-       cx="46.255165"
-       r="12.557772" />
-    <rect
-       style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="rect1098"
-       width="22.638094"
-       height="25.112768"
-       x="32.140591"
-       y="22.952005" />
+    <g
+       id="g1435"
+       inkscape:label="Mörkt moln">
+      <circle
+         style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234-9"
+         cy="47.642525"
+         cx="54.713104"
+         r="12.557772" />
+      <circle
+         style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234-9-1"
+         cy="38.965351"
+         cx="46.189587"
+         r="12.557772" />
+      <rect
+         style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="rect1098"
+         width="22.638094"
+         height="25.112768"
+         x="32.075012"
+         y="35.084751" />
+    </g>
     <path
        id="path2217-0"
        style="fill:url(#radialGradient13839);fill-opacity:1;stroke:#ff9800;stroke-width:1.94862;stroke-linecap:butt;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1;paint-order:markers fill stroke"
        class="UnoptimicedTransforms"
        d="m 33.757113,17.330725 a 16.536455,16.536453 0 0 0 -16.426905,16.608805 16.536455,16.536453 0 0 0 16.573149,16.463595 16.536455,16.536453 0 0 0 0.222725,-0.0031 24.645325,24.64533 0 0 1 -6.383589,-16.424837 24.645325,24.64533 0 0 1 6.36912,-16.63361 16.536455,16.536453 0 0 0 -0.3545,-0.01085 z"
-       transform="matrix(0.91707674,0,0,0.91707674,22.273672,10.69103)" />
-    <rect
-       style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="rect1098-8"
-       width="20.437595"
-       height="18.571051"
-       x="11.999146"
-       y="29.493719" />
-    <circle
-       style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234"
-       cy="21.583948"
-       cx="25.089155"
-       r="12.557772" />
-    <circle
-       style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234-91-9"
-       cy="35.503681"
-       cx="13.085804"
-       r="12.557772" />
-    <circle
-       style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234-91"
-       cy="35.509487"
-       cx="32.142204"
-       r="12.557772" />
+       transform="matrix(1.3287098,0,0,1.3287098,11.771365,-14.199892)"
+       inkscape:label="Måne" />
+    <g
+       id="g1430"
+       inkscape:label="Vitt moln">
+      <rect
+         style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="rect1098-8"
+         width="20.437595"
+         height="18.571051"
+         x="11.933571"
+         y="41.626465" />
+      <circle
+         style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234"
+         cy="33.716694"
+         cx="25.023579"
+         r="12.557772" />
+      <circle
+         style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234-91-9"
+         cy="47.636429"
+         cx="13.020228"
+         r="12.557772" />
+      <circle
+         style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234-91"
+         cy="47.642235"
+         cx="32.076626"
+         r="12.557772" />
+    </g>
   </g>
 </svg>

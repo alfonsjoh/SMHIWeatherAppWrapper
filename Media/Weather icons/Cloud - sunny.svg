@@ -7,7 +7,7 @@
    viewBox="0 0 67.73336 67.733314"
    version="1.1"
    id="svg5"
-   inkscape:version="1.2.2 (732a01da63, 2022-12-09)"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
    sodipodi:docname="Cloud - sunny.svg"
    inkscape:export-filename="png\Cloud - sunny.png"
    inkscape:export-xdpi="96"
@@ -29,14 +29,14 @@
      inkscape:document-units="mm"
      showgrid="false"
      inkscape:zoom="2"
-     inkscape:cx="29.25"
-     inkscape:cy="146.5"
-     inkscape:window-width="3440"
-     inkscape:window-height="1369"
-     inkscape:window-x="1912"
-     inkscape:window-y="-8"
-     inkscape:window-maximized="1"
-     inkscape:current-layer="layer1" />
+     inkscape:cx="45"
+     inkscape:cy="54.75"
+     inkscape:window-width="2253"
+     inkscape:window-height="2061"
+     inkscape:window-x="-8"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1-3" />
   <defs
      id="defs2">
     <radialGradient
@@ -67,43 +67,35 @@
      inkscape:label="Lager 1"
      inkscape:groupmode="layer"
      id="layer1">
-    <circle
-       style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234-9"
-       cy="35.509777"
-       cx="54.778683"
-       r="12.557772" />
-    <circle
-       style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234-9-1"
-       cy="26.832603"
-       cx="46.255165"
-       r="12.557772" />
-    <rect
-       style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="rect1098"
-       width="22.638094"
-       height="25.112768"
-       x="32.140591"
-       y="22.952005" />
-    <rect
-       style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="rect1098-8"
-       width="20.437595"
-       height="18.571051"
-       x="11.999146"
-       y="29.493719" />
-    <circle
-       style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234-91-9"
-       cy="35.503681"
-       cx="13.085804"
-       r="12.557772" />
     <g
-       inkscape:label="Lager 1"
+       id="g2348"
+       inkscape:label="Mörktmoln"
+       transform="translate(-0.06557668,9.5025966)">
+      <circle
+         style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234-9"
+         cy="35.509777"
+         cx="54.778683"
+         r="12.557772" />
+      <circle
+         style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234-9-1"
+         cy="26.832603"
+         cx="46.255165"
+         r="12.557772" />
+      <rect
+         style="fill:#dae8e9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="rect1098"
+         width="22.638094"
+         height="25.112768"
+         x="32.140591"
+         y="22.952005" />
+    </g>
+    <g
+       inkscape:label="Sol"
        inkscape:groupmode="layer"
        id="layer1-3"
-       transform="matrix(0.54912325,0,0,0.54912325,26.049444,-2.9661923)">
+       transform="matrix(0.71876128,0,0,0.71876128,20.276639,-9.5823081)">
       <path
          id="path3414"
          style="fill:#ff9800;stroke:#000000;stroke-width:0"
@@ -161,17 +153,35 @@
          style="fill:#ff9800;stroke:#000000;stroke-width:0"
          d="m 56.898198,33.790588 c 0.305518,0.519431 0.206273,1.140644 -0.222523,1.392853 l -5.570122,3.276226 c -0.428796,0.252208 -1.01996,0.03708 -1.325478,-0.482352 -0.305519,-0.519432 -0.206273,-1.140644 0.222523,-1.392853 l 5.570122,-3.276225 c 0.428796,-0.252209 1.01996,-0.03708 1.325478,0.482351 z" />
     </g>
-    <circle
-       style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234-91"
-       cy="35.509487"
-       cx="32.142204"
-       r="12.557772" />
-    <circle
-       style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
-       id="path234"
-       cy="21.583948"
-       cx="25.089155"
-       r="12.557772" />
+    <g
+       id="g2369"
+       inkscape:label="Vitt moln"
+       transform="translate(-0.06557668,9.5025966)">
+      <rect
+         style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="rect1098-8"
+         width="20.437595"
+         height="18.571051"
+         x="11.999146"
+         y="29.493719" />
+      <circle
+         style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234-91-9"
+         cy="35.503681"
+         cx="13.085804"
+         r="12.557772" />
+      <circle
+         style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234-91"
+         cy="35.509487"
+         cx="32.142204"
+         r="12.557772" />
+      <circle
+         style="fill:#f6f9f9;fill-opacity:1;stroke:#040000;stroke-width:0"
+         id="path234"
+         cy="21.583948"
+         cx="25.089155"
+         r="12.557772" />
+    </g>
   </g>
 </svg>
