@@ -1,6 +1,6 @@
 ﻿namespace WeatherApp.Models.Weather.Models.smhi;
 
-public class SMHIWeatherData
+public class WeatherData
 {
     public string approvedTime { get; set; }
     public string referenceTime { get; set; }
