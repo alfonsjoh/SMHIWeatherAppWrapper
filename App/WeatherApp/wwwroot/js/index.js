@@ -107,10 +107,6 @@ function getForecast10WeatherView(weather) {
     let highestTemperature = $("<p></p>")
         .addClass("temperature")
         .text(kelvinToCelsius(weather["highTemp"]) + "°");
-    /*
-    let groupDiv = $("<div></div>")
-        .addClass("weather10Group");
-    groupDiv.append(icon, lowestTemperature, highestTemperature)*/
     
     weather_div.append(day, rain, wind, icon, lowestTemperature, highestTemperature);
     
