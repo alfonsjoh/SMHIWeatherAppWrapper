@@ -69,7 +69,7 @@ function getForecastWeatherView(weather){
 
     let wind = $("<p></p>")
         .addClass("wind")
-        .text(weather["windSpeed"].toFixed(1).replace(".", ",") + " m/s");
+        .text(weather["windSpeed"].toFixed(0).replace(".", ",") + " m/s");
     
     let temperature = $("<p></p>")
         .addClass("temperature")
@@ -104,7 +104,7 @@ function getForecast10WeatherView(weather) {
     let wind = $("<p></p>")
         .addClass("wind");
     if (SHOW_WIND) {
-        wind.text(weather["windSpeed"].toFixed(1).replace(".", ",") + " m/s")
+        wind.text(weather["windSpeed"].toFixed(0).replace(".", ",") + " m/s")
     }
     
     let icon = $('<img/>')
