@@ -1,4 +1,12 @@
 ﻿
+.sun-icon{
+    position: absolute;
+    top: 30px;
+    right: 50px;
+    z-index: -999;
+    width: 300px;
+}
+
 .location-input-container{
     margin-top: 10px;
 }
@@ -12,9 +20,8 @@
     padding: 4px;
 }
 
-.location-autocomplete{
-    position: relative;
-    
+.location-autocomplete:not(:has(*)){
+    display: none;
 }
 
 .forecast-view{
