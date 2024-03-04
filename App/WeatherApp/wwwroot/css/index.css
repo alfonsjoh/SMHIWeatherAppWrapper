@@ -57,6 +57,10 @@
     margin-bottom: 0;
 }
 
+.weather .wind{
+    white-space: nowrap;
+}
+
 .forecast10-view{
     display: flex;
     flex-direction: column;

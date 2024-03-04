@@ -54,10 +54,6 @@ function getForecastWeatherView(weather){
     let weather_div = $("<div></div>")
         .addClass("weather");
     
-    let temperature = $("<p></p>")
-        .addClass("temperature")
-        .text(kelvinToCelsius(weather["temperature"]) + "°");
-    
     let time = $("<p></p>")
         .addClass("weather-time")
         .text(`${hours}:${minutes}`);
@@ -66,8 +62,20 @@ function getForecastWeatherView(weather){
         .attr("alt", weather["icon"]["alternative"])
         .attr("src", weather["icon"]["source"]) // Weather icon
         .addClass("weather-icon");
+
+    let wind = $("<p></p>")
+        .addClass("wind")
+        .text(weather["windSpeed"].toFixed(1).replace(".", ",") + " m/s");
     
-    weather_div.append(time, icon, temperature);
+    let temperature = $("<p></p>")
+        .addClass("temperature")
+        .text(kelvinToCelsius(weather["temperature"]) + "°");
+    
+    weather_div.append(time, icon);
+    if (SHOW_WIND) {
+        weather_div.append(wind);
+    }
+    weather_div.append(temperature)
     
     return weather_div;
 }
@@ -91,7 +99,7 @@ function getForecast10WeatherView(weather) {
 
     let wind = $("<p></p>")
         .addClass("wind");
-    if (weather["windSpeed"] !== 0 && SHOW_WIND) {
+    if (SHOW_WIND) {
         wind.text(weather["windSpeed"].toFixed(1).replace(".", ",") + " m/s")
     }
     
