@@ -35,7 +35,6 @@ public partial class SearchController : Controller
     public async Task<IResult> City(string id)
     {
         // Validate that the id is safe for sending to Meilisearch
-        // TODO - Create test to verify that all indexes pass this validation
         if (!CachedForecast.IdRegex().IsMatch(id))
         {
             return Results.BadRequest("The provided city id is not valid.");
